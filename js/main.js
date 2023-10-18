@@ -120,24 +120,24 @@ function checkMathedBlocks(firstBlock, secondBlock) {
 }
 // End Game Function
 function finish() {
-    let div = document.createElement("div");
-    div.className = "popup";
-    let divText = document.createTextNode(`Game Over`);
-    let p = document.createElement("p");
-    p.className = "play-Again";
-    let txtP = document.createTextNode("Play Again");
-    p.appendChild(txtP);
-    div.appendChild(divText);
-    div.appendChild(p);
-    document.body.appendChild(div);
-    p.onclick = function () {
-        window.location.reload();
-    };
+    blocks.map((ele) => {
+        ele.classList.add("has-match");
+    });
     setTimeout(() => {
-        blocks.map((ele) => {
-            ele.classList.add("has-match");
-        });
-    }, 500);
+        let div = document.createElement("div");
+        div.className = "popup";
+        let divText = document.createTextNode(`Game Over !`);
+        let p = document.createElement("p");
+        p.className = "play-Again";
+        let txtP = document.createTextNode("Play Again");
+        p.appendChild(txtP);
+        div.appendChild(divText);
+        div.appendChild(p);
+        document.body.appendChild(div);
+        p.onclick = function () {
+            window.location.reload();
+        };
+    }, 800)
 }
 // Winner Game Function
 function win() {
